@@ -66,7 +66,7 @@ def z2(g, x0):
     last_valid_coloring = x0
 
     node_colors = x0
-    for n in range(30000):
+    for n in range(30_000):
         node_colors[random.randint(0, len(node_colors) - 1)] = random.choice(colors)
         if check_if_valid_coloring(g, node_colors):
             last_valid_coloring = node_colors.copy()
@@ -78,9 +78,8 @@ if __name__ == "__main__":
     n = int(input("Podaj liczbę wierzchołków grafu G: "))
     k = int(input("Podaj liczbę kolorów: "))
 
-    # if n or k are not positive integers, program will exit
-    if not n > 0 or not k > 0 or k * n % 1 != 0:
-        raise ValueError("Liczby n i k muszą być dodatnie i całkowite")
+    if n < 1 or k < 1:
+        raise ValueError("Liczby n i k muszą być dodatnie")
 
     # create graph with random edges
     graph = generate_random_graph(n)
