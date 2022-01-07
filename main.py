@@ -105,7 +105,7 @@ if __name__ == "__main__":
         print("Wierzchołek", index, ":", hex(color), end="\n")
 
     z2colorings = list()
-    for i in range(2000):
+    for i in range(3000):
         z2colorings.append("".join([str(x) for x in z2(adj, z1coloring)]))
 
     plt.hist(z2colorings, bins=len(set(z2colorings)))
